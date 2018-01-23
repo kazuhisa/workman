@@ -1,0 +1,13 @@
+h1 グループ一覧
+= link_to '新規作成', new_group_path, class: 'btn btn-primary btn-lg btn-block'
+br
+table.table
+  thead
+    tr
+      th 名前
+      th 概要
+  tbody
+    - @groups.each do |group|
+      tr
+        td= link_to group.name, group
+        td= group.content
