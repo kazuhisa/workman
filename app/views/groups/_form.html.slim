@@ -1,12 +1,5 @@
 = form_with(model: group, local: true) do |form|
-  - if group.errors.any?
-    #error_explanation
-      h2
-        = pluralize(group.errors.count, "error")
-        | prohibited this group from being saved:
-      ul
-        - group.errors.full_messages.each do |message|
-          li= message
+  = render partial: 'shared/error', locals: { errors: group.errors }
   .col-sm-8.col-sm-offset-2
     .form-group
       = form.label :name

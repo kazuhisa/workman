@@ -1,0 +1,9 @@
+- if errors.any?
+  .alert.alert-danger
+    a.close data-dismiss="alert" href="#"  ×
+    h5.alert-heading
+      = errors.count
+      | つのエラーが発生しました:
+    ul
+      - errors.full_messages.each do |msg|
+        li= msg
