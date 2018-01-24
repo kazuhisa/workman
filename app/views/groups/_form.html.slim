@@ -1,0 +1,19 @@
+= form_with(model: group, local: true) do |form|
+  - if group.errors.any?
+    #error_explanation
+      h2
+        = pluralize(group.errors.count, "error")
+        | prohibited this group from being saved:
+      ul
+        - group.errors.full_messages.each do |message|
+          li= message
+  .col-sm-8.col-sm-offset-2
+    .form-group
+      = form.label :name
+      = form.text_field :name, id: :group_name, class: 'form-control'
+    .form-group
+      = form.label :content
+      = form.text_area :content, id: :group_content, class: 'form-control'
+    .form-group
+      = form.submit '登録', class: 'btn btn-success'
+      = link_to '戻る', groups_url, class: 'btn btn-danger'

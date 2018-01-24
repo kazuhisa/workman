@@ -1,17 +1,12 @@
 .card
-  .card-header
+  h3.card-header
     = @group.name
-    .float-right
-      = link_to edit_group_path(@group) do
-        i.fa.fa-pencil.fa-fw
-      = link_to @group, method: :delete, data: { confirm: '削除します。よろしいですか？' } do
-        i.fa.fa-trash.fa-fw
-  .card-block
+  .card-body
     p.card-text
-      .row
-        .col-md-2
-          label
-            | 内容：
-        .col-md-10
-          = @group.content
+      = @group.content
+      .float-right
+        = link_to edit_group_path(@group) do
+          i.fa.fa-pencil.fa-fw
+        = link_to @group, method: :delete, data: { confirm: '削除します。よろしいですか？' } do
+          i.fa.fa-trash.fa-fw
 
