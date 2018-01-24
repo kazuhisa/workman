@@ -1,0 +1,12 @@
+= form_with(model: [group, user], local: true) do |form|
+  = render partial: 'shared/error', locals: { errors: user.errors }
+  .col-sm-8.col-sm-offset-2
+    .form-group
+      = form.label :name
+      = form.text_field :name, class: 'form-control'
+    .form-group
+      = form.label :age
+      = form.text_field :age, class: 'form-control'
+    .form-group
+      = form.submit '登録', class: 'btn btn-success'
+      = link_to '戻る', group_url(group), class: 'btn btn-danger'

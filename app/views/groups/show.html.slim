@@ -10,3 +10,16 @@
         = link_to @group, method: :delete, data: { confirm: '削除します。よろしいですか？' } do
           i.fa.fa-trash.fa-fw
 
+br
+= link_to 'ユーザー新規作成', new_group_user_path(@group), class: 'btn btn-primary btn-lg btn-block'
+br
+table.table
+  thead
+    tr
+      th 名前
+      th 年齢
+  tbody
+    - @group.users.each do |user|
+      tr
+        td= link_to user.name, group_user_path(@group, user)
+        td= user.age
