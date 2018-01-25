@@ -16,4 +16,5 @@ html
       #navbarCollapse.collapse.navbar-collapse
     .container
       == render 'layouts/messages'
+      == breadcrumbs separator: "&nbsp;/&nbsp;", style: :bootstrap
       = yield
