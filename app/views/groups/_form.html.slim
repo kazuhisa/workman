@@ -15,17 +15,21 @@
           table.table
             thead
               tr.d-flex
-                th.col-10
+                th.col-6
                   | 名前
-                th.col-2
+                th.col-3
                   | 年齢
+                th.col-3
+                  | 削除
             tbody
               = form.fields_for(:users) do |user_form|
                 tr.d-flex
-                  td.col-10
+                  td.col-6
                     = user_form.text_field :name, class: 'form-control'
-                  td.col-2
+                  td.col-3
                     = user_form.text_field :age, class: 'form-control'
+                  td.col-3
+                    = user_form.check_box :_destroy
           = button_tag type: 'submit', class: 'btn btn-primary btn', name: 'add_row' do
             i.fa.fa-plus-circle
             | 行追加

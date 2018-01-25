@@ -58,7 +58,7 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :content, users_attributes: [:name, :age, :id])
+      params.require(:group).permit(:name, :content, users_attributes: [:name, :age, :_destroy, :id])
     end
 
     def add_row_request?
