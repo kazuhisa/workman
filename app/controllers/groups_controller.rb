@@ -7,10 +7,21 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @group.users.build
+  end
+
+  def edit
+    @group.users.build
   end
 
   def create
     @group = Group.new(group_params)
+
+    if add_row_request?
+      @group.users.build
+      render :new
+      return
+    end
 
     if @group.save
       redirect_to @group, notice: '登録しました。'
@@ -20,7 +31,14 @@ class GroupsController < ApplicationController
   end
 
   def update
-    if @group.update(group_params)
+    @group.attributes = group_params
+    if add_row_request?
+      @group.users.build
+      render :edit
+      return
+    end
+
+    if @group.save
       redirect_to @group, notice: '更新しました。'
     else
       render :edit
@@ -40,6 +58,11 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :content)
+      params.require(:group).permit(:name, :content, users_attributes: [:name, :age, :id])
     end
+
+    def add_row_request?
+      params.keys.include?('add_row')
+    end
+
 end

@@ -7,6 +7,29 @@
     .form-group
       = form.label :content
       = form.text_area :content, id: :group_content, class: 'form-control'
+    .card
+      h5.card-header
+        | ユーザー
+      .card-body
+        p.card-text
+          table.table
+            thead
+              tr.d-flex
+                th.col-10
+                  | 名前
+                th.col-2
+                  | 年齢
+            tbody
+              = form.fields_for(:users) do |user_form|
+                tr.d-flex
+                  td.col-10
+                    = user_form.text_field :name, class: 'form-control'
+                  td.col-2
+                    = user_form.text_field :age, class: 'form-control'
+          = button_tag type: 'submit', class: 'btn btn-primary btn', name: 'add_row' do
+            i.fa.fa-plus-circle
+            | 行追加
+
     .form-group
       = form.submit '登録', class: 'btn btn-success'
       = link_to '戻る', groups_url, class: 'btn btn-danger'

@@ -10,3 +10,27 @@
         = link_to @group, method: :delete, data: { confirm: '削除します。よろしいですか？' } do
           i.fa.fa-trash.fa-fw
 
+br
+
+.card
+  h5.card-header
+    | ユーザー
+  .card-body
+    p.card-text
+      table.table
+        thead
+          tr.d-flex
+            th.col-10
+              | 名前
+            th.col-2
+              | 年齢
+        tbody
+          - @group.users.each do | user |
+            tr.d-flex
+              td.col-10
+                = user.name
+              td.col-2
+                = user.age
+
+
+
