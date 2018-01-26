@@ -64,5 +64,4 @@ class GroupsController < ApplicationController
     def add_row_request?
       params.keys.include?('add_row')
     end
-
 end
