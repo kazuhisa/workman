@@ -1,24 +1,12 @@
-# README
+# これは何？
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[第21回 岡山Ruby, Ruby on Rails勉強会](https://okaruby.connpass.com/event/74212/)の資料です。
 
-Things you may want to cover:
+# ブランチ
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* master
+  * グループ登録画面まで作成
+* nested_resources
+  * Nested Resourcesを使ってユーザー画面を作ったサンプル
+* nested_attr
+  * Nested Attributesを使ってユーザー画面を作ったサンプル
